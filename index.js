@@ -41,6 +41,8 @@ sequelize
   .sync()
   .then((result) => {
     console.log('Database connected!')
-    app.listen(process.env.PORT || 3000)
+    app.listen(process.env.PORT || 3000, '0.0.0.0', () => {
+      console.log('Server started!')
+    })
   })
   .catch((err) => console.log(err))
