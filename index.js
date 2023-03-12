@@ -1,6 +1,9 @@
+require('dotenv').config()
+
 const express = require('express')
 const sequelize = require('./utils/database')
 const logger = require('morgan')
+const createError = require('http-errors')
 
 const app = express()
 
@@ -19,7 +22,7 @@ app.get('/', (req, res, next) => {
   res.send('Hello World!')
 })
 
-//CRUD routes
+// CRUD routes
 app.use('/users', require('./routes/users'))
 
 // catch 404 and forward to error handler
@@ -27,19 +30,17 @@ app.use(function (req, res, next) {
   next(createError(404))
 })
 
-//error handling
+// error handling
 app.use((error, req, res, next) => {
-  console.log(error)
-  const status = error.statusCode || 500
-  const message = error.message
-  res.status(status).json({ message: message })
+  const { statusCode = 500, message } = error
+  res.status(statusCode).json({ message: message })
 })
 
-//sync database
+// sync database
 sequelize
   .sync()
   .then((result) => {
-    console.log('Database connected')
-    app.listen(3000)
+    console.log('Database connected!')
+    app.listen(process.env.PORT || 3000)
   })
   .catch((err) => console.log(err))
