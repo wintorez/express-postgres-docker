@@ -1,0 +1,19 @@
+{
+  "name": "express-postgres-docker-rest-api",
+  "version": "1.0.0",
+  "description": "A simple Rest API in JavaScript using Node.js, Express, Postgres and Docker",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "http-errors": "^2.0.0",
+    "morgan": "^1.10.0",
+    "pg": "^8.10.0",
+    "sequelize": "^6.29.3"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.4"
+  }
+}
