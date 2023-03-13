@@ -18,7 +18,7 @@ services:
   node_db:
     container_name: node_db
     restart: always
-    image: postgres:12
+    image: postgres:12-alpine
     ports:
       - '5432:5432'
     environment:

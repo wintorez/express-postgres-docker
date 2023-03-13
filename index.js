@@ -36,13 +36,15 @@ app.use((error, req, res, next) => {
   res.status(statusCode).json({ message: message })
 })
 
+const port = process.env.PORT || 3000
+
 // sync database
 sequelize
   .sync()
   .then((result) => {
     console.log('Database connected!')
-    app.listen(process.env.PORT || 3000, '0.0.0.0', () => {
-      console.log('Server started!')
+    app.listen(port, '0.0.0.0', () => {
+      console.log(`Server listening on port ${port}`)
     })
   })
   .catch((err) => console.log(err))
