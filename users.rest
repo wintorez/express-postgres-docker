@@ -1,3 +1,10 @@
+# User API Endpoints
+# This file contains the API endpoints for managing users.
+# Make sure your server is running on http://localhost:3000
+# and the necessary middleware for JSON parsing is set up.
+# You can use this file with REST Client extensions in editors like VSCode.
+# To run the requests, make sure to have the REST Client extension installed.
+
 GET http://localhost:3000/
 
 ###
